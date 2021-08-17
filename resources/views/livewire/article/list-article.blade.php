@@ -75,14 +75,14 @@
               <img
                 alt="Rubick Tailwind HTML Admin Template"
                 class="rounded-t-md"
-                src="http://rubick-laravel.left4code.com/dist/images/preview-14.jpg"
+                src="{{ $article->thumbnail }}"
               />
               <div class="absolute w-full flex items-center px-5 pt-6 z-10">
                 <div class="w-10 h-10 flex-none image-fit">
                   <img
                     alt="Rubick Tailwind HTML Admin Template"
                     class="rounded-full"
-                    src="http://rubick-laravel.left4code.com/dist/images/profile-14.jpg"
+                    src="{{ $article->user->profile_photo_url }}"
                   />
                 </div>
                 <div class="ml-3 text-white mr-auto">

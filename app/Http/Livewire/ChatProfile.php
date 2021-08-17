@@ -8,6 +8,8 @@ class ChatProfile extends Component
 {
     public function render()
     {
-        return view('livewire.chat-profile');
+        $user = auth()->user();
+        $user->load('identity');
+        return view('livewire.chat-profile', compact('user'));
     }
 }

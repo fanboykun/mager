@@ -14,14 +14,14 @@
               "
             >
               <img
-                alt="Rubick Tailwind HTML Admin Template"
-                src="http://rubick-laravel.left4code.com/dist/images/profile-1.jpg"
+                alt="{{ $user->name }}"
+                src="{{ $user->profile_photo_url }}"
               />
             </div>
             <div class="text-center mt-3">
-              <div class="font-medium text-lg">Russell Crowe</div>
+              <div class="font-medium text-lg">{{ $user->name }}</div>
               <div class="text-gray-600 mt-1">
-                Tailwind HTML Admin Template
+                {{ $user->identity->status }}
               </div>
             </div>
           </div>
@@ -36,8 +36,8 @@
               "
             >
               <div>
-                <div class="text-gray-600">Country</div>
-                <div class="mt-1">New York City, USA</div>
+                <div class="text-gray-600">Instagram</div>
+                <div class="mt-1">{{ $user->identity->instagram }}</div>
               </div>
               <i
                 data-feather="globe"
@@ -73,7 +73,7 @@
             >
               <div>
                 <div class="text-gray-600">Email</div>
-                <div class="mt-1">russellcrowe@left4code.com</div>
+                <div class="mt-1">{{ $user->email }}</div>
               </div>
               <i
                 data-feather="mail"
@@ -83,7 +83,7 @@
             <div class="flex items-center pt-5">
               <div>
                 <div class="text-gray-600">Joined Date</div>
-                <div class="mt-1">8 December 2022</div>
+                <div class="mt-1">{{ $user->created_at->diffForHumans() }}</div>
               </div>
               <i
                 data-feather="clock"

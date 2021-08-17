@@ -22,17 +22,18 @@ class SettingFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->company();
         return [
-            'name' => $this->faker->name(),
-            'tagline' => 'surya is the best cigar',
+            'name' => $name,
+            'tagline' => $this->faker->sentence(3),
             'address' => $this->faker->address(),
             'phone' => $this->faker->phoneNumber(),
-            'email' => $this->faker->email,
+            'email' => $this->faker->companyEmail(),
             'accreditation' => "A",
-            'npsn' => Str::random(10),
-            'logo' => "",
-            'instagram' => 'blackpink',
-            'twitter' => 'nunu_nana',
+            'npsn' => Str::upper(Str::random(10)),
+            'logo' => 'https://ui-avatars.com/api/?name='.urlencode($name).'&color=7F9CF5&background=EBF4FF',
+            'instagram' => $this->faker->userName(),
+            'twitter' => $this->faker->userName(),
         ];
     }
 }

@@ -126,7 +126,9 @@
           {{-- <div class="text-gray-500 dark:text-gray-600 text-xs text-center mb-10 mt-5">
             12 June 2020
           </div> --}}
+
           @foreach ($conversation->messages as $message)
+
           @if ($message->user_id == auth()->id())
 
           <div class="chat__box__text-box flex items-end float-right mb-4">
@@ -401,12 +403,12 @@
               "
             >
               <img
-                alt="Rubick Tailwind HTML Admin Template"
-                src="http://rubick-laravel.left4code.com/dist/images/profile-1.jpg"
+                alt="{{ auth()->user()->name }}"
+                src="{{ auth()->user()->profile_photo_url }}"
               />
             </div>
             <div class="mt-3">
-              <div class="font-medium">Hey, Russell Crowe!</div>
+              <div class="font-medium">Hi {{ auth()->user()->name }}</div>
               <div class="text-gray-600 mt-1">
                 Please select a chat to start messaging.
               </div>

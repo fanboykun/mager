@@ -492,7 +492,7 @@
         >
         <img
           alt="Rubick Tailwind HTML Admin Template"
-          src="http://rubick-laravel.left4code.com/dist/images/profile-15.jpg"
+          src="{{ Auth::user()->profile_photo_url }}"
         />
       </div>
       <div

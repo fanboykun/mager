@@ -44,19 +44,11 @@
                       <div
                         class="w-10 h-10 flex-none image-fit rounded-full"
                       >
-                      @if ($loop->odd)
                         <img
                           alt="Rubick Tailwind HTML Admin Template"
                           class="rounded-full"
-                          src="{{ asset('profile-11.jpg') }}"
+                          src="{{ $user->profile_photo_url }}"
                         />
-                        @else
-                        <img
-                          alt="Rubick Tailwind HTML Admin Template"
-                          class="rounded-full"
-                          src="{{ asset('profile-14.jpg') }}"
-                        />
-                        @endif
                         <div
                           class="
                             w-3
@@ -110,19 +102,11 @@
           "
         >
           <div class="w-12 h-12 flex-none image-fit mr-1">
-              @if ($loop->odd)
               <img
                 alt="Rubick Tailwind HTML Admin Template"
                 class="rounded-full"
-                src="{{ asset('profile-11.jpg') }}"
+                src="{{ $conversation->toUser->id === auth()->id() ? $conversation->user->profile_photo_url : $conversation->toUser->profile_photo_url }}"
               />
-              @else
-              <img
-                alt="Rubick Tailwind HTML Admin Template"
-                class="rounded-full"
-                src="{{ asset('profile-14.jpg') }}"
-              />
-              @endif
             <div
               class="
                 w-3
@@ -142,13 +126,13 @@
                 >{{ $conversation->toUser->id === auth()->id() ? $conversation->user->name : $conversation->toUser->name }}</a
               >
               <div class="text-xs text-gray-500 ml-auto">
-                01:10 PM
+                  <span>
+                      {{ $conversation->latestMessage->published }}
+                  </span>
               </div>
             </div>
             <div class="w-full truncate text-gray-600 mt-0.5">
-              Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum has been the
-              industry&#039;s standard dummy text ever since the 1500
+              {{ $conversation->latestMessage->body }}
             </div>
           </div>
           <div

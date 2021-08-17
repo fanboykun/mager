@@ -17,9 +17,14 @@ class Message extends Model
     protected $touches = ['conversation'];
 
 
+    // public function getPublishedAttribute(){
+
+    //     return Carbon::createFromTimeStamp(strtotime($this->attributes['created_at']) )->diffForHumans();
+    // }
+
     public function getPublishedAttribute(){
 
-        return Carbon::createFromTimeStamp(strtotime($this->attributes['created_at']) )->diffForHumans();
+        return Carbon::parse($this->attributes['created_at'])->format('h:i');
     }
 
     public function conversation()

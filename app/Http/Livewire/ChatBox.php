@@ -7,6 +7,8 @@ use App\Models\Conversation;
 use Livewire\Component;
 use App\Models\Message;
 Use App\Events\MessageCreated;
+use Illuminate\Database\Eloquent\Builder;
+use Carbon\Carbon;
 
 class ChatBox extends Component
 {
@@ -14,25 +16,18 @@ class ChatBox extends Component
     public $user;
     public $conversation;
     public $chat = false;
-    // public $message;
+    public $fetchedMessages;
 
     public $body;
 
     protected $rules = [
-        'body' => 'required|string',
+        'body' => 'required|string'
     ];
-
-
-    public function mount(Message $message)
-    {
-        $this->conversation = $message->conversation_id;
-    }
 
 
     public function render()
     {
         return view('livewire.chat-box');
-        // dd($this->conversation);
     }
 
     public function getListeners()
@@ -48,24 +43,43 @@ class ChatBox extends Component
 
     public function beginChat($id)
     {
-        $this->user = User::find($id);
-        $this->conversation = Conversation::firstOrCreate([
-            'user_id' => auth()->id(),
-            'message_to' => $this->user->id,
-        ]);
         $this->chat = true;
+        $this->user = User::findOrFail($id);
+
+        $conversation = Conversation::query()
+        ->where(function ($query) use ($id) {
+            $query->where(['user_id' => $id, 'message_to' => auth()->id()]);
+        })->orWhere(function ($query) use ($id) {
+            $query->where(['user_id'=> auth()->id(), 'message_to' => $id]);
+        })->with('messages')->first();
+
+
+        if($conversation != null){
+            $this->conversation = $conversation;
+        }else{
+            $this->conversation = Conversation::Create([
+                'user_id' => auth()->id(),
+                'message_to' => $id,
+            ]);
+        }
     }
 
     public function beginConversation($conversation)
     {
         $this->conversation = Conversation::find($conversation);
-
-        if ($this->conversation->user_id == auth()->id()){
-            $this->user = $this->conversation->toUser;
-        }else {
-            $this->user = $this->conversation->user;
-        }
+        $this->sender();
         $this->chat = true;
+
+    }
+
+
+    public function sender()
+    {
+        if ($this->conversation->user_id == auth()->id()){
+            return $this->user = $this->conversation->toUser;
+        }else {
+           return $this->user = $this->conversation->user;
+        }
     }
 
     public function sendMessage()
@@ -74,7 +88,7 @@ class ChatBox extends Component
         $data['user_id'] = auth()->id();
         $message =  $this->conversation->messages()->create($data);
         $this->reset('body');
-        // $this->emit('pushMessage');
+        $this->emit('pushMessage');
         broadcast(new MessageCreated($message));
     }
 }

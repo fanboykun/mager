@@ -47,7 +47,7 @@
             <img
               alt="Rubick Tailwind HTML Admin Template"
               class="rounded-full"
-              src="{{ asset('profile-11.jpg') }}"
+              src="{{ $user->profile_photo_url }}"
             />
             <div
               class="
@@ -68,7 +68,7 @@
               wire:click="$emit('beginChat', {{ $user->id }})" class="font-medium">{{ $user->name }}</a>
             </div>
             <div class="w-full truncate text-gray-600 mt-0.5">
-              Last seen 2 hours ago
+              {{ $user->identity->status }}
             </div>
           </div>
           <div class="dropdown ml-auto">

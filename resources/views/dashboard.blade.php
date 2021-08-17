@@ -505,26 +505,26 @@
             </div>
             <!-- END: Sales Report -->
             <!-- BEGIN: Official Store -->
-            <div class="w-full col-span-12 xl:col-span-12 mt-6">
-              <div class="intro-y block sm:flex items-center h-10">
-                <h2 class="text-lg font-medium truncate mr-5">
-                  School Address
-                </h2>
-              </div>
-              <div class="intro-y box p-5 mt-12 sm:mt-5">
-                <div>
-                  Your Address, if you want to change it, go to personalization
+                {{-- <div class="w-full col-span-12 xl:col-span-12 mt-6">
+                <div class="intro-y block sm:flex items-center h-10">
+                    <h2 class="text-lg font-medium truncate mr-5">
+                    School Address
+                    </h2>
                 </div>
-                <div
-                  class="report-maps mt-5 bg-gray-200 rounded-md" id="map"
-                ></div>
-              </div>
-            </div>
+                <div class="intro-y box p-5 mt-12 sm:mt-5">
+                    <div>
+                    Your Address, if you want to change it, go to personalization
+                    </div>
+                    <div
+                    class="report-maps mt-5 bg-gray-200 rounded-md" id="map"
+                    ></div>
+                </div>
+                </div> --}}
             <!-- END: Official Store -->
       </div>
-      
-      @section('scripts')
+
+      {{-- @section('scripts')
         @include('plugins.mapbox')
-      @endsection
+      @endsection --}}
 
     </x-app-layout>
