@@ -13,6 +13,9 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        zIndex: {
+            '9999': 9999,
+        },
     },
 
     variants: {

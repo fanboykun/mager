@@ -1,6 +1,6 @@
 <div class="top-bar">
     <!-- BEGIN: Breadcrumb -->
-    <div class="-intro-x breadcrumb mr-auto hidden sm:flex">
+    <div class="intro-x breadcrumb mr-auto hidden sm:flex">
       <a href="">Application</a>
       <i data-feather="chevron-right" class="breadcrumb__icon"></i>
       <a href="" class="breadcrumb--active">Dashboard</a>
@@ -255,7 +255,7 @@
     </div>
     <!-- END: Search -->
     <!-- BEGIN: Notifications -->
-    <div x-data="{ open : false }" class="intro-x dropdown mr-auto sm:mr-6">
+    <div class="intro-x dropdown mr-auto sm:mr-6">
       <div x-on:click="open = ! open"
         class="
           dropdown-toggle
@@ -277,7 +277,7 @@
             dropdown-menu__content
             box
             dark:bg-dark-6
-          " :class="{'show': open}"
+          "
         >
           <div class="notification-content__title">Notifications</div>
           <div class="cursor-pointer relative flex items-center">
@@ -513,7 +513,7 @@
             </div>
           </div>
           <div class="p-2">
-            <a
+            {{-- <a
               href="{{ route('profile') }}"
               class="
                 flex
@@ -529,7 +529,7 @@
               "
             >
               <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile
-            </a>
+            </a> --}}
             <a
               href="{{ route('update-profile') }}"
               class="

@@ -24,8 +24,8 @@ class IdentityFactory extends Factory
     {
             return [
                 'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-                'status' => $this->faker->sentence(),
-                'instagram' => $this->faker->sentence(),
+                'status' => $this->faker->realText(10,1),
+                'instagram' => $this->faker->userName(),
                 'phone' => $this->faker->phoneNumber(),
                 'address' => $this->faker->address(),
             ];

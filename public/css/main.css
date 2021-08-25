@@ -3406,6 +3406,18 @@ video {
   width: 100vw;
   opacity: 0;
 }
+.modal2 {
+    margin-top: -10000px;
+    margin-left: -10000px;
+    /* transition: visibility 0s linear 0.2s, opacity 0.2s 0s; */
+    /* visibility: hidden; */
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 1;
+  }
 .modal,
 .modal.modal-overlap {
   background: rgba(0, 0, 0, 0.6509803921568628);
@@ -3824,7 +3836,7 @@ video {
 }
 .top-bar {
   height: 67px;
-  z-index: 51;
+  /* z-index: 51; */
   position: relative;
   display: flex;
   align-items: center;
@@ -7579,7 +7591,7 @@ video {
 }
 .top-bar-boxed {
   height: 70px;
-  z-index: 51;
+  /* z-index: 51; */
   position: relative;
 }
 .mobile-menu {

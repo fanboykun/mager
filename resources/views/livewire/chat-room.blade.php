@@ -2,9 +2,20 @@
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">Chat</h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-          <button class="btn btn-primary shadow-md mr-2">
+          <a href="javascript:;"
+          {{-- onclick="Livewire.emit('openModal', 'category.categories')" --}}
+           {{-- wire:click='$emit("openModal", "category.categories")' --}}
+           {{-- data-toggle="modal" --}}
+           {{-- data-target="#superlarge-modal-size-preview" --}}
+           class="btn btn-primary shadow-md mr-2">
             Start New Chat
-          </button>
+          </a>
+          <a href="javascript:;"
+           data-toggle="modal"
+           data-target="#superlarge-modal-size-preview"
+           class="btn btn-primary shadow-md mr-2">
+            Template Modal
+          </a>
           <div class="dropdown ml-auto sm:ml-0">
             <button
               class="
@@ -123,4 +134,13 @@
         </div>
         <!-- END: Chat Content -->
       </div>
+      {{-- Modal --}}
+      <div id="superlarge-modal-size-preview" class="modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body p-10 text-center"> This is totally awesome superlarge modal! </div>
+            </div>
+        </div>
+    </div>
+    {{-- End Modal --}}
 </div>

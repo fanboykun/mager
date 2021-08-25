@@ -43,7 +43,7 @@ class PersonalInformation extends Component
 
     public function removePreviewPhoto()
     {
-        $this->reset();
+        $this->reset('photo');
     }
 
     public function updatePersonalInformation()

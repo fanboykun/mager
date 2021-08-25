@@ -69,6 +69,15 @@ class User extends Authenticatable
         return $this->hasOne(Identity::class);
     }
 
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+    public function manager()
+    {
+        return $this->hasOne(Division::class, 'manager_id');
+    }
+
     // public function hasRead(Conversation $conversation)
     // {
     //     return $this->conversations->find($conversation->id)->pivot->read_at;

@@ -54,13 +54,6 @@ trait HasProfilePhoto
                     : $this->defaultProfilePhotoUrl();
     }
 
-    // public function getProfilePhotoPathAttribute()
-    // {
-    //     return $this->profile_photo_url
-    //                 ? Storage::disk($this->profilePhotoDisk())->url($this->profile_photo_path)
-    //                 : $this->defaultProfilePhotoUrl();
-    // }
-
     /**
      * Get the default profile photo URL if no profile photo has been uploaded.
      *

@@ -1,8 +1,10 @@
 <div>
     <div class="intro-y flex items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">Organization Overview</h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0 mr-5">
+        </div>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a class="btn btn-primary shadow-md mr-2" role="button" href="{{ route('articles.create') }}">Edit Organization Data</a>
+            <a class="btn btn-primary shadow-md mr-2" role="button" href="{{ route('personalization.edit') }}">Edit Organization Data</a>
         </div>
     </div>
       <!-- BEGIN: Profile Info -->
@@ -40,7 +42,7 @@
               <img
                 alt="Rubick Tailwind HTML Admin Template"
                 class="rounded-full"
-                src="{{ $setting->logo }}"
+                src="{{ $setting->logo_url }}"
               />
             </div>
             <div class="ml-5">

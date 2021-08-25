@@ -13,7 +13,7 @@
     //     );
     FilePond.setOptions({
             server: {
-            url: 'http://midone-test.test',
+            url: 'http://mager.test',
             process: {
                 url: '/upload/store',
                 headers: {

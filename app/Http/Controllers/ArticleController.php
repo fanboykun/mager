@@ -76,6 +76,7 @@ class ArticleController extends Controller
                 $article->update(['thumbnail' => $thumbnail->getUrl()]);
             }
             // $request->session()->flash('flash.banner', 'Created!');
+            // $this->notify('Organization Data Has Been Updated', 'Updated!', 'info');
             return redirect()->route('articles.index');
 
     }

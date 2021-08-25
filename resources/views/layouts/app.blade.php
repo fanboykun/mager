@@ -6,14 +6,15 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
         <script src="{{ asset('js/app.js') }}" defer></script>
+
         <!-- Fonts -->
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
         <!-- Styles -->
 
-        {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
                 <!--Filepond -->
@@ -31,38 +32,40 @@
 
         <script src="{{ asset('js/main.js') }}" defer></script>
 
+
         <!-- Feather Icon -->
-        <script src="https://unpkg.com/feather-icons"></script>
+        {{-- <script src="https://unpkg.com/feather-icons"></script> --}}
 
         <!-- Map Box Script -->
 
     </head>
     <body class="main">
-            <!--mobile menu should here-->
+            <x-notification />
+                <!--mobile menu should here-->
 
-            <!--end mobile menu here-->
-            <div class="flex">
-                <!--side menu here-->
-                    @include('layouts.partial.sidebar')
-                <!--end side menu-->
+                <!--end mobile menu here-->
+                <div class="flex">
+                    <!--side menu here-->
+                        @include('layouts.partial.sidebar')
+                    <!--end side menu-->
 
-                <!-- content wrapper here -->
-                    <div class="content">
-                        <!-- top bar here -->
-                        @include('layouts.partial.topbar')
-                        <!-- end top bar here -->
+                    <!-- content wrapper here -->
+                        <div class="content">
+                            <!-- top bar here -->
+                            @include('layouts.partial.topbar')
+                            <!-- end top bar here -->
 
-                        <!-- main content here -->
-                            {{ $slot }}
-                        <!-- end main content here -->
-                    </div>
-                <!-- end content wrapper here -->
-            </div>
-        @livewire('livewire-ui-modal')
-        @livewireScripts
+                            <!-- main content here -->
+                                {{ $slot }}
+                            <!-- end main content here -->
+                        </div>
+                        <!-- end content wrapper here -->
+                </div>
+            @livewire('livewire-ui-modal')
+            @livewireScripts
         @yield('scripts')
-        <script>
+        {{-- <script>
             feather.replace()
-          </script>
+          </script> --}}
     </body>
 </html>

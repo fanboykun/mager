@@ -15,6 +15,10 @@ class CreateAnnouncementsTable extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('division_id')->nullable();
+            $table->string('title');
+            $table->string('content');
+            $table->boolean('is_important')->default(false);
             $table->timestamps();
         });
     }

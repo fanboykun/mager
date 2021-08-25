@@ -2,10 +2,10 @@
             <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
                 <h2 class="text-lg font-medium mr-auto">Create Post</h2>
                 <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                  <button class="btn btn-primary shadow-md mr-2">
+                  <button type="button" onclick="Livewire.emit('openModal', 'category.categories')" class="btn btn-primary shadow-md mr-2">
                     Categories
                   </button>
-                  <button class="btn btn-primary shadow-md mr-2">
+                  <button type="button" onclick='Livewire.emit("openModal", "tag.tags", @json(["is_delete" => false]))' class="btn btn-primary shadow-md mr-2">
                     Tags
                   </button>
                   <div class="dropdown ml-auto sm:ml-0">
