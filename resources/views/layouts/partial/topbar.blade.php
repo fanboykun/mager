@@ -7,7 +7,7 @@
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->
-    <div class="intro-x relative mr-3 sm:mr-6">
+    {{-- <div class="intro-x relative mr-3 sm:mr-6">
       <div class="search hidden sm:block">
         <input
           type="text"
@@ -252,10 +252,10 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- END: Search -->
     <!-- BEGIN: Notifications -->
-    <div class="intro-x dropdown mr-auto sm:mr-6">
+    {{-- <div class="intro-x dropdown mr-auto sm:mr-6">
       <div x-on:click="open = ! open"
         class="
           dropdown-toggle
@@ -472,7 +472,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- END: Notifications -->
     <!-- BEGIN: Account Menu -->
     <div class="intro-x dropdown w-8 h-8">
@@ -547,7 +547,7 @@
             >
               <i data-feather="edit" class="w-4 h-4 mr-2"></i> Update profile
             </a>
-            <a
+            {{-- <a
               href=""
               class="
                 flex
@@ -563,7 +563,7 @@
               "
             >
               <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Help
-            </a>
+            </a> --}}
           </div>
           <div class="p-2 border-t border-theme-27 dark:border-dark-3">
             <form method="POST" action="{{ route('logout') }}">

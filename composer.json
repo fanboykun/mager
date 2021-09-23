@@ -14,6 +14,7 @@
         "livewire-ui/modal": "^1.0",
         "livewire/livewire": "^2.5",
         "pusher/pusher-php-server": "^7.0",
+        "sentry/sentry-laravel": "^2.8",
         "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-sluggable": "^2.6"
     },

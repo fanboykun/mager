@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Division;
 
+use App\Models\Category;
 use Livewire\Component;
 use App\Models\Division;
 

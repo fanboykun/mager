@@ -14,8 +14,8 @@
             <div class="box zoom-in">
                 <div class="tns-outer" >
                     <div id="" class="tns-ovh">
-                        <div class="tns-inner" id="important-notes-iw">
-                            <div class="tiny-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" id="important-notes" style="transform: translate3d(-20%, 0px, 0px); transition-duration: 0s;">
+                        <div class="tns-inner">
+                            <div class="tiny-slider  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" style="transform: translate3d(-20%, 0px, 0px); transition-duration: 0s;">
                                 <div class="p-5 tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
                                     <div class="text-base font-medium truncate">{{ $announcement->title }}</div>
                                     <div class="text-gray-500 mt-1">{{ $announcement->created_at->diffForHumans() }}</div>

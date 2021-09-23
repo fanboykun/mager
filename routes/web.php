@@ -17,8 +17,9 @@ use App\Http\Livewire\Personalization\PersonalizationEdit;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('about');
 });
+
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -65,5 +66,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('upload/store', [App\Http\Controllers\FilepondController::class, 'store'])->name('upload.store');
     Route::get('upload/show', [App\Http\Controllers\FilepondController::class, 'show'])->name('upload.show');
 });
+
+// Route::get('/debug-sentry', function () {
+//     throw new Exception('My first Sentry error!');
+// });
 
 require __DIR__.'/auth.php';

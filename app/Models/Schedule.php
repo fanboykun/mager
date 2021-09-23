@@ -15,4 +15,9 @@ class Schedule extends Model
         'start_at',
         'end_at'
     ];
+
+    protected $casts = [
+        'start_at' => 'datetime:Y-m-d',
+        'end_at' => 'datetime:Y-m-d',
+    ];
 }
