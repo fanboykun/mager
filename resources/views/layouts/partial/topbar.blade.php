@@ -1,9 +1,10 @@
 <div class="top-bar">
     <!-- BEGIN: Breadcrumb -->
     <div class="intro-x breadcrumb mr-auto hidden sm:flex">
-      <a href="">Application</a>
+        <h2>Date : {{ Carbon\Carbon::today()->format('l, d F Y : h A') }}</h2>
+      {{-- <a href="">Application</a>
       <i data-feather="chevron-right" class="breadcrumb__icon"></i>
-      <a href="" class="breadcrumb--active">Dashboard</a>
+      <a href="" class="breadcrumb--active">Dashboard</a> --}}
     </div>
     <!-- END: Breadcrumb -->
     <!-- BEGIN: Search -->

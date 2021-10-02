@@ -6,31 +6,31 @@
         src="http://rubick-laravel.left4code.com/dist/images/logo.svg"
       />
       <span class="hidden xl:block text-white text-lg ml-3">
-        Ru<span class="font-medium">bick</span>
+        Ma<span class="font-medium">ger</span>
       </span>
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
-      <li>
+    <li>
         <a href="{{ route('dashboard') }}" class="side-menu {{ request()->routeIs('dashboard') ? 'side-menu--active' : '' }}">
-          <div class="side-menu__icon">
+            <div class="side-menu__icon">
             <i data-feather="home"></i>
-          </div>
-          <div class="side-menu__title">
+            </div>
+            <div class="side-menu__title">
             Dashboard
-          </div>
+            </div>
         </a>
-      </li>
-      <li>
+        </li>
+        <li>
         <a href="{{ route('timeline') }}" class="side-menu {{ request()->routeIs('timeline') ? 'side-menu--active' : '' }}">
-          <div class="side-menu__icon">
+            <div class="side-menu__icon">
             <i data-feather="trello"></i>
-          </div>
-          <div class="side-menu__title">
+            </div>
+            <div class="side-menu__title">
             Timeline
-          </div>
+            </div>
         </a>
-      </li>
+        </li>
       <li class="side-nav__devider my-6"></li>
       <li>
         <a href="{{ route('personalization') }}" class="side-menu {{ request()->routeIs('personalization') ? 'side-menu--active' : '' }}">

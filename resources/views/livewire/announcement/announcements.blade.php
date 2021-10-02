@@ -1,14 +1,22 @@
 <div>
-    <div class="col-span-12 md:col-span-6 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
-        <div class="intro-x flex items-center h-10">
-            <h2 class="text-lg font-medium truncate mr-auto">Announcements</h2>
-            <button data-carousel="important-notes" data-target="prev" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left w-4 h-4"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button data-carousel="important-notes" data-target="next" class="tiny-slider-navigator btn px-2 border-gray-400 text-gray-700 dark:text-gray-300 mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right w-4 h-4"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
+    <div class="intro-y mt-5">
+        <h2 class="text-lg font-medium truncate mr-auto">Announcements</h2>
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
+            <button class="btn btn-primary shadow-md mr-2">Add New Announcement</button>
+
+            <div class="hidden md:block mx-auto text-gray-600">
+                <span>Showing Announcements Data</span>
+            </div>
+            <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+                <div class="w-56 relative text-gray-700 dark:text-gray-300">
+                    <input type="text"
+                        class="form-control w-56 box pr-10 placeholder-theme-13" placeholder="Search..." />
+                    <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="col-span-12 md:col-span-6 xl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
         @foreach ($announcements as $announcement)
         <div class="mt-5 intro-x">
             <div class="box zoom-in">

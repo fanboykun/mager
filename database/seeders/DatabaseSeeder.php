@@ -25,8 +25,9 @@ class DatabaseSeeder extends Seeder
             \App\Models\User::factory()->for($division)->create()->each(function ($user) use ($division){
                 $user->manager()->save($division);
             });
-            $project = \App\Models\Project::factory()->make();
-            $division->projects()->save($project);
+            // $i =1;
+            $project = \App\Models\Project::factory()->hasTasks(5)->for($division)->create();
+            // $division->projects()->save($project);
             $announcement =  \App\Models\Announcement::factory()->make();
             $division->announcements()->save($announcement);
         }

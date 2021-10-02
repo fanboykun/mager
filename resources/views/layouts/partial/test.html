@@ -1,0 +1,51 @@
+<li>
+    <a href="javascript:;" class="side-menu {{ request()->routeIs('dashboard.*') ? 'side-menu--active' : '' }}">
+        <div class="side-menu__icon">
+            <i data-feather="home"></i>
+        </div>
+        <div class="side-menu__title">
+            Dashboard
+            <!-- arrow -->
+            <div class="side-menu__sub-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-down">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            <!-- end arrow -->
+        </div>
+    </a>
+    <ul class="side-menu__sub-open">
+        <li>
+            <a href="" class="side-menu {{ request()->routeIs('dashboard.overview') ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-activity">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <div class="side-menu__title">
+                    Overview
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="" class="side-menu {{ request()->routeIs('dashboard.timeline') ? 'side-menu--active' : '' }}">
+                <div class="side-menu__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-activity">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <div class="side-menu__title">
+                    Timeline
+                </div>
+            </a>
+        </li>
+    </ul>
+</li>
+

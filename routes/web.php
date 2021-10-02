@@ -3,6 +3,7 @@
 use App\Events\MessageCreated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Livewire\Dashboard\Overview;
 use App\Http\Livewire\Personalization\PersonalizationEdit;
 
 /*
@@ -23,8 +24,8 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');})->name('dashboard');
+    Route::get('/dashboard', App\Http\Livewire\Dashboard\Overview::class)->name('dashboard');
+    Route::get('/timeline', App\Http\Livewire\Dashboard\Timeline::class)->name('timeline');
 
     Route::resource('articles', ArticleController::class);
 
@@ -41,12 +42,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/schedules', App\Http\Livewire\Schedule\Schedules::class)->name('schedules');
 
     Route::get('/projects', App\Http\Livewire\Project\Projects::class)->name('projects');
+    Route::get('/projects/{project}', App\Http\Livewire\Project\ProjectShow::class)->name('projects.show');
 
     Route::get('/categories', App\Http\Livewire\Category\ListCategory::class)->name('categories');
     Route::get('/tags', App\Http\Livewire\Tag\ListTag::class)->name('tags');
 
-    Route::get('/timeline', function () {
-        return view('timeline');})->name('timeline');
 
     Route::get('/update-profile', function () {
         return view('update-profile');})->name('update-profile');
