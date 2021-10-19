@@ -22,56 +22,19 @@ const tailwindcss = require("tailwindcss");
 
 mix
     .js("resources/js/app.js", "public/js")
+    .js("resources/js/modal.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .options({
         processCssUrls: false,
-        postCss: [tailwindcss("./tailwind.config.js")],
+        postCss: [tailwindcss("./tailwind.config.js"), require('autoprefixer')],
     })
     .autoload({
-        "cash-dom": ["cash"],
+        'cash-dom': ['cash'],
     })
-    // .webpackConfig({
-    //     module: {
-    //         rules: [
-    //             {
-    //                 test: CKERegex.svg,
-    //                 use: ["raw-loader"],
-    //             },
-    //             {
-    //                 test: CKERegex.css,
-    //                 use: [
-    //                     {
-    //                         loader: "style-loader",
-    //                         options: {
-    //                             injectType: "singletonStyleTag",
-    //                             attributes: {
-    //                                 "data-cke": true,
-    //                             },
-    //                         },
-    //                     },
-    //                     "css-loader",
-    //                     {
-    //                         loader: "postcss-loader",
-    //                         options: {
-    //                             postcssOptions: styles.getPostCssConfig({
-    //                                 themeImporter: {
-    //                                     themePath: require.resolve(
-    //                                         "@ckeditor/ckeditor5-theme-lark"
-    //                                     ),
-    //                                 },
-    //                                 minify: true,
-    //                             }),
-    //                         },
-    //                     },
-    //                 ],
-    //             },
-    //         ],
-    //     },
-    // })
     // .copyDirectory("resources/json", "public/dist/json")
     .copyDirectory("resources/fonts", "public/fonts")
-    .copyDirectory("resources/images", "public/images")
-    .browserSync({
-        proxy: "rubick-laravel.test",
-        files: ["resources/**/*.*"],
-    });
+    .copyDirectory("resources/images", "public/images");
+    // .browserSync({
+    //     proxy: "mager.test",
+    //     files: ["resources/**/*.*"],
+    // });

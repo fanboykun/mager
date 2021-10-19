@@ -17,6 +17,8 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->foreignId('division_id')->nullable();
             $table->string('title');
+            $table->timestamp('finished_at')->nullable();
+            $table->timestamp('last_task_completed_at')->nullable();
             $table->string('description');
             $table->timestamp('due_date')->nullable();
             $table->timestamps();

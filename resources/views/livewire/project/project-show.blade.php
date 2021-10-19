@@ -28,7 +28,7 @@
                         </a> --}}
                         {{-- <div class="mt-5 mx-5 px-5"> --}}
                             <a href="javascript:;" class="ml-5 inline:block items-center justify-center dark:text-gray-300">
-                                <span class="mr-2">View Finished Only  </span> <input class="form-check-input flex-none" type="checkbox">
+                                <span class="mr-2">View Unfinished Only  </span> <input class="form-check-input flex-none" type="checkbox" wire:model="unfinished">
                             </a>
                         {{-- </div> --}}
                     </div>
@@ -38,7 +38,7 @@
                     <div class="intro-y">
                         <div class="inbox__item {{ $task->is_finished == false ? 'inbox__item--active' : '' }} inline-block sm:block text-gray-700 dark:text-gray-500 bg-gray-100 dark:bg-dark-1 border-b border-gray-200 dark:border-dark-1">
                             <div class="flex px-5 py-3">
-                                    <input class="form-check-input flex-none" type="checkbox" {{ $task->is_finished == true ? 'checked' : '' }}>
+                                    <input class="form-check-input flex-none" type="checkbox" wire:click="completeTask({{ $task->id }})" {{ $task->completed_at != null ? 'checked' : '' }}>
                                     <a href="javascript:;" class="w-5 h-5 flex-none ml-4 flex items-center justify-center text-gray-500">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star w-4 h-4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                                     </a>

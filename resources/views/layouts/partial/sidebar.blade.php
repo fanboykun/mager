@@ -33,12 +33,12 @@
         </li>
       <li class="side-nav__devider my-6"></li>
       <li>
-        <a href="{{ route('personalization') }}" class="side-menu {{ request()->routeIs('personalization') ? 'side-menu--active' : '' }}">
+        <a href="{{ route('organization') }}" class="side-menu {{ request()->routeIs('organization') ? 'side-menu--active' : '' }}">
           <div class="side-menu__icon">
             <i data-feather="edit"></i>
           </div>
           <div class="side-menu__title">
-            Personalization
+            Organization
           </div>
         </a>
       </li>

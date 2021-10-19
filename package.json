@@ -10,11 +10,6 @@
         "production": "mix --production"
     },
     "dependencies": {
-        "@fullcalendar/core": "^5.5.1",
-        "@fullcalendar/daygrid": "^5.5.0",
-        "@fullcalendar/interaction": "^5.5.0",
-        "@fullcalendar/list": "^5.5.0",
-        "@fullcalendar/timegrid": "^5.5.1",
         "@left4code/tw-starter": "^1.0.9",
         "@popperjs/core": "^2.4.4",
         "cash-dom": "^8.0.0",

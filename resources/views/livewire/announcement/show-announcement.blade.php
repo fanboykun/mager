@@ -1,0 +1,3 @@
+<div>
+    {{ $announcement->title }}
+</div>

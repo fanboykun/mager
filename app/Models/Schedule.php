@@ -17,7 +17,7 @@ class Schedule extends Model
     ];
 
     protected $casts = [
-        'start_at' => 'datetime:Y-m-d',
-        'end_at' => 'datetime:Y-m-d',
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
     ];
 }

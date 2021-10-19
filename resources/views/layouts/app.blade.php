@@ -21,14 +21,15 @@
                 <!-- Map Box -->
                 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' /> --}}
         @livewireStyles
+        @stack('styles')
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/app.js') }}" defer></script>
 
 
 
         <!-- Feather Icon -->
-        {{-- <script src="https://unpkg.com/feather-icons"></script> --}}
+        <script src="https://unpkg.com/feather-icons"></script>
 
         <!-- Map Box Script -->
 
@@ -59,8 +60,8 @@
             @livewireScripts
         @stack('scripts')
         @yield('scripts')
-        {{-- <script>
+        <script>
             feather.replace()
-          </script> --}}
+          </script>
     </body>
 </html>

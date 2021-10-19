@@ -8,18 +8,18 @@
                     Filter
                 </button>
                 <div class="border-t border-theme-3 dark:border-dark-5 mt-6 pt-6 text-white">
-                    <button wire:click="filterAll()" role="button" type="submit" class="flex items-center px-3 py-2 rounded-md bg-theme-20 dark:bg-dark-1 font-medium">
+                    <a wire:click="filterAll" role="button" type="button" class="{{ $filter === "all" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail w-4 h-4 mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> All
-                    </button>
-                    <button wire:click="filterFinished()" role="button" type="submit" class="flex items-center px-3 py-2 mt-2 rounded-md">
+                    </a>
+                    <a wire:click="filterFinished" role="button" type="button" class="mt-2 {{ $filter === "finished" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star w-4 h-4 mr-2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Finished
-                    </button>
-                    <button wire:click="filterOngoing()" role="button" type="submit" class="flex items-center px-3 py-2 mt-2 rounded-md">
+                    </a>
+                    <a wire:click="filterOngoing" role="button" type="button" class="mt-2 {{ $filter === "ongoing" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox w-4 h-4 mr-2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> Ongoing
-                    </button>
-                    <button wire:click="filterUnworked()" role="button" type="submit" class="flex items-center px-3 py-2 mt-2 rounded-md">
+                    </a>
+                    <a wire:click="filterUnworked" role="button" type="button" class="mt-2 {{ $filter === "unworked" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send w-4 h-4 mr-2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Unworked
-                    </button>
+                    </a>
                 </div>
 
             </div>
@@ -53,52 +53,15 @@
                     </div>
                 </div>
             </div>
-            @forelse ($projects as $project)
-            <div class="col-span-12 lg:col-span-6 mt-5">
-                <div class="intro-y box">
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <div class="w-72 flex-none flex items-center mr-5">
-                            <a href="javascript:;" class="dropdown-togle w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500" aria-expanded="false">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star w-4 h-4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                            </a>
-                            <a href="javascript:;" class="w-5 h-5 flex-none ml-2 flex items-center justify-center text-gray-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bookmark w-4 h-4"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                            </a>
-                            <div class="inbox__item--sender truncate ml-3"><a href="{{ route('projects.show',$project->id) }}"> {{ Str::title($project->title) }} </a></div>
-                        </div>
-                        <div class="w-full sm:w-auto flex items-center sm:ml-auto mt-3 sm:mt-0">
-                            <label class="form-check-label ml-0 sm:ml-2" for="show-example-2">Mark Finished</label>
-                            <input class="show-code form-check-switch mr-0 ml-3" type="checkbox">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-12 lg:col-span-6">
-                    <div class="intro-y box">
-                        <div id="boxed-accordion" class="p-5">
-                            <div class="preview">
-                                <div id="faq-accordion-2" class="accordion accordion-boxed">
-                                    <div class="accordion-item">
-                                    <div id="faq-accordion-content-1" class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-accordion-collapse-5" aria-expanded="true" aria-controls="faq-accordion-collapse-5">
-                                            Description :
-                                        </button>
-                                    </div>
-                                    <div id="faq-accordion-collapse-5" class="accordion-collapse collapse show" aria-labelledby="faq-accordion-content-1" data-bs-parent="#faq-accordion-2">
-                                        <div class="accordion-body text-gray-700 dark:text-gray-600 leading-relaxed">
-                                            {{ $project->description }} <br>
-                                            Created At : {{ $project->created_at }} <br>
-                                            Due Date : {{ $project->due_date }} <br>
-                                            <a class="btn text-white dark:bg-theme-1 mt-1" href="{{ route('projects.show',$project->id) }}"> view tasks</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @empty
-            No Data!!!
-            @endforelse
+            @if ($filter === "all")
+                @livewire('project.project-all')
+            @elseif($filter === "finished")
+                @livewire('project.project-finished')
+            @elseif($filter === "ongoing")
+                @livewire('project.project-ongoing')
+            @elseif($filter === "unworked")
+                @livewire('project.project-unworked')
+            @endif
         </div>
     </div>
 </div>

@@ -1,4 +1,12 @@
 window._ = require('lodash');
+window.cash = require('cash-dom');
+window.helper = require('./helper');
+
+
+import Velocity from "velocity-animate";
+import * as Popper from "@popperjs/core";
+window.Velocity = Velocity;
+window.Popper = Popper;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

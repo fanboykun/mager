@@ -11,7 +11,7 @@ class Announcements extends Component
 
     public function render()
     {
-        $this->announcements = Announcement::orderByDesc('updated_at')->get();
+        $this->announcements = Announcement::orderByDesc('is_important')->get();
         return view('livewire.announcement.announcements');
     }
 }

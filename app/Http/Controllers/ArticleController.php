@@ -22,7 +22,7 @@ class ArticleController extends Controller
     {
         // $articles = Article::with(['user', 'tag', 'category'])->orderBy('created_at', 'DESC')->take(6);
         $article = Article::first();
-        return view('articles', compact('article'));
+        return view('article.articles', compact('article'));
     }
     /**
      * Show the form for creating a new resource.
@@ -33,7 +33,7 @@ class ArticleController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('article-create',compact(['categories','tags']));
+        return view('article.article-create',compact(['categories','tags']));
     }
 
     /**
@@ -102,7 +102,7 @@ class ArticleController extends Controller
     {
         $categories = Category::get();
         $tags = Tag::get();
-        return view('article-edit', compact(['article', 'categories', 'tags']));
+        return view('article.article-edit', compact(['article', 'categories', 'tags']));
     }
 
     /**

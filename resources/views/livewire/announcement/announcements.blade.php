@@ -29,7 +29,9 @@
                                     <div class="text-gray-500 mt-1">{{ $announcement->created_at->diffForHumans() }}</div>
                                     <div class="text-gray-600 text-justify mt-1">{{ $announcement->content }}</div>
                                     <div class="font-medium flex mt-5">
-                                        <button type="button" class="btn btn-secondary py-1 px-2">View Notes</button>
+                                        <a href="{{ route('announcements.show', $announcement->id) }}" class="btn btn-secondary py-1 px-2">View Notes</a>
+                                        <button type="button" class="btn btn-secondary py-1 px-2 ml-2"><i class="w-4 h-4" data-feather="trash"></i></button>
+                                        <button type="button" class="btn btn-secondary py-1 px-2 ml-2"><i class="w-4 h-4" data-feather="edit-3"></i></button>
                                         @if ($announcement->is_important == true)
                                         <button type="button" class="btn btn-danger py-1 px-2 ml-auto ml-auto">Important</button>
                                         @endif

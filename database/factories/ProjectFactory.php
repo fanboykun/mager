@@ -25,7 +25,9 @@ class ProjectFactory extends Factory
         return [
             'title' => $this->faker->word(),
             'description' => $this->faker->paragraph(2),
-            'due_date' => $this->faker->dateTimeThisMonth(),
+            'finished_at' => $this->faker->dateTimeBetween('-3 days', 'now'),
+            'last_task_completed_at' => $this->faker->dateTimeBetween('-1 week', '-3 days'),
+            'due_date' => $this->faker->dateTimeBetween('+3 days', '+1 week'),
         ];
     }
 }

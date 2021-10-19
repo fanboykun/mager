@@ -1,10 +1,7 @@
 <?php
 
-use App\Events\MessageCreated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
-use App\Http\Livewire\Dashboard\Overview;
-use App\Http\Livewire\Personalization\PersonalizationEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +15,7 @@ use App\Http\Livewire\Personalization\PersonalizationEdit;
 */
 
 Route::get('/', function () {
-    return view('about');
+    return view('welcome');
 });
 
 
@@ -29,15 +26,16 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('articles', ArticleController::class);
 
-    Route::get('/calendar', function () {
-        return view('calendar');})->name('calendar');
+    Route::get('/calendar', App\Http\Livewire\Schedule\Schedules::class)->name('calendar');
 
-    Route::get('/users', function () {
-        return view('users');})->name('users');
+    Route::get('/users', App\Http\Livewire\User\UsersList::class)->name('users');
 
     Route::get('/divisions', App\Http\Livewire\Division\Divisions::class)->name('divisions');
+    Route::get('/division/{division}', App\Http\Livewire\Division\DivisionShow::class)->name('division.show');
+    Route::get('/division/{division:name}/edit', App\Http\Livewire\Division\DivisionEdit::class)->name('division.edit');
 
     Route::get('/announcements', App\Http\Livewire\Announcement\Announcements::class)->name('announcements');
+    Route::get('/announcements/{announcement}', App\Http\Livewire\Announcement\ShowAnnouncement::class)->name('announcements.show');
 
     Route::get('/schedules', App\Http\Livewire\Schedule\Schedules::class)->name('schedules');
 
@@ -48,15 +46,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/tags', App\Http\Livewire\Tag\ListTag::class)->name('tags');
 
 
-    Route::get('/update-profile', function () {
-        return view('update-profile');})->name('update-profile');
+    Route::get('/update-profile', App\Http\Livewire\Profile\Profile::class)->name('update-profile');
 
-    Route::get('/personalization', [App\Http\Controllers\PersonalizationController::class, 'show'])->name('personalization');
-    Route::get('/personalization/edit', PersonalizationEdit::class)->name('personalization.edit');
+    Route::get('/organization', App\Http\Livewire\Organization\OrganizationReview::class)->name('organization');
+    Route::get('/organization/edit', App\Http\Livewire\Organization\OrganizationEdit::class)->name('organization.edit');
 
 
-    Route::get('/chat', function () {
-        return view('chat');})->name('chat');
+    Route::get('/chat', App\Http\Livewire\Chat\ChatRoom::class)->name('chat');
 
 });
 
