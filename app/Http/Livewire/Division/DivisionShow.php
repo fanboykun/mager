@@ -3,29 +3,33 @@
 namespace App\Http\Livewire\Division;
 
 use App\Models\Division;
+use App\Models\User;
 use Livewire\Component;
 
 class DivisionShow extends Component
 {
     public $division;
-    public $div_tab = 'users-list';
+    public $tab = null ?? 'users-list';
+    public $queryString = ['tab'];
 
-    public function mount($division)
+    public $listeners = ['openTab' => 'changeTab'];
+
+    public function mount(Division $division)
     {
-        $this->division = Division::findOrFail($division)
-        ->with(['manager', 'users'])
-        ->withCount('users')
-        ->withCount('projects')
-        ->withCount('announcements')
-        ->first();
+        $this->division = $division
+        ->load(['manager', 'users'])
+        ->loadCount('users')
+        ->loadCount('projects')
+        ->loadCount('announcements');
     }
 
     public function render()
     {
         return view('livewire.division.division-show');
     }
-    public function openTab($content)
+
+    public function changeTab($content)
     {
-        $this->div_tab = $content;
+        return $this->tab = $content;
     }
 }

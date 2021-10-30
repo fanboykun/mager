@@ -8,16 +8,16 @@
                     Filter
                 </button>
                 <div class="border-t border-theme-3 dark:border-dark-5 mt-6 pt-6 text-white">
-                    <a wire:click="filterAll" role="button" type="button" class="{{ $filter === "all" ? $active : $inactive }}">
+                    <a wire:click="$emit('filter', 'all')" role="button" type="button" class="{{ $filter === "all" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail w-4 h-4 mr-2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> All
                     </a>
-                    <a wire:click="filterFinished" role="button" type="button" class="mt-2 {{ $filter === "finished" ? $active : $inactive }}">
+                    <a wire:click="$emit('filter', 'finished')" role="button" type="button" class="mt-2 {{ $filter === "finished" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star w-4 h-4 mr-2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Finished
                     </a>
-                    <a wire:click="filterOngoing" role="button" type="button" class="mt-2 {{ $filter === "ongoing" ? $active : $inactive }}">
+                    <a wire:click="$emit('filter', 'ongoing')" role="button" type="button" class="mt-2 {{ $filter === "ongoing" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox w-4 h-4 mr-2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> Ongoing
                     </a>
-                    <a wire:click="filterUnworked" role="button" type="button" class="mt-2 {{ $filter === "unworked" ? $active : $inactive }}">
+                    <a wire:click="$emit('filter', 'unworked')" role="button" type="button" class="mt-2 {{ $filter === "unworked" ? $active : $inactive }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send w-4 h-4 mr-2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Unworked
                     </a>
                 </div>

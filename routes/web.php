@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users', App\Http\Livewire\User\UsersList::class)->name('users');
 
     Route::get('/divisions', App\Http\Livewire\Division\Divisions::class)->name('divisions');
-    Route::get('/division/{division}', App\Http\Livewire\Division\DivisionShow::class)->name('division.show');
+    Route::get('/division/{division:name}', App\Http\Livewire\Division\DivisionShow::class)->name('division.show');
     Route::get('/division/{division:name}/edit', App\Http\Livewire\Division\DivisionEdit::class)->name('division.edit');
 
     Route::get('/announcements', App\Http\Livewire\Announcement\Announcements::class)->name('announcements');

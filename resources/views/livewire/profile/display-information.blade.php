@@ -1,14 +1,6 @@
 <div>
     <div class="intro-y box mt-5">
-        <div
-          class="
-            flex
-            items-center
-            p-5
-            border-b border-gray-200
-            dark:border-dark-5
-          "
-        >
+        <div class="flex items-center p-5 border-b border-gray-200 dark:border-dark-5">
           <h2 class="font-medium text-base mr-auto">
             Display Information
           </h2>
@@ -17,9 +9,7 @@
           <div class="grid grid-cols-12 gap-x-5">
             <div class="col-span-12 xl:col-span-6">
               <div>
-                <label for="update-profile-form-6" class="form-label"
-                  >Chat Status</label
-                >
+                <label for="update-profile-form-6" class="form-label">Chat Status</label>
                 <input
                   id="update-profile-form-6"
                   wire:model="status"
@@ -52,23 +42,18 @@
                     id="update-profile-form-5"
                     wire:model="description"
                     class="form-control"
-                    placeholder="Greatest Persong In The World Is Someone Who Always Have The Critical Thinking"
+                    placeholder="Greatest Person In The World Is Someone Who Always Have The Critical Thinking"
                   >
                   </textarea
                   >
                 </div>
               </div>
             </div>
+            <div class="flex justify-end mt-4">
+              <button type="submit" wire:click.prevent="updateIdentity" class="btn btn-primary w-20 mr-auto">
+                Save
+              </button>
+            </div>
         </div>
-          <div class="flex justify-end mt-4">
-            <button type="submit" wire:click.prevent="updateIdentity" class="btn btn-primary w-20 mr-auto">
-              Save
-            </button>
-            <a href="" class="text-theme-6 flex items-center">
-              <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Delete
-              Account
-            </a>
-          </div>
-        </div>
-      </div>
+    </div>
 </div>

@@ -1,5 +1,17 @@
 <div>
     <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 flex flex-wrap sm:flex-nowrap items-center mt-2">
+            <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+                <div class="w-56 relative text-gray-700 dark:text-gray-300">
+                    <input type="text"
+                    class="form-control w-56 box pr-10 placeholder-theme-13" placeholder="Search..." />
+                    <i class="w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0" data-feather="search"></i>
+                </div>
+            </div>
+            <div class="hidden md:block mx-auto text-gray-600">
+            </div>
+            <button class="btn btn-primary shadow-md mr-2">Invite A User To This Division</button>
+        </div>
         <!-- BEGIN: Users Layout -->
         @foreach ($users as $user)
         <div class="intro-y col-span-12 md:col-span-6">

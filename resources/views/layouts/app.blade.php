@@ -24,12 +24,12 @@
         @stack('styles')
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
 
 
         <!-- Feather Icon -->
-        <script src="https://unpkg.com/feather-icons"></script>
+        {{-- <script src="https://unpkg.com/feather-icons"></script> --}}
 
         <!-- Map Box Script -->
 
@@ -57,11 +57,12 @@
                         <!-- end content wrapper here -->
                 </div>
             @livewire('livewire-ui-modal')
+            {{-- <script>
+                feather.replace()
+              </script> --}}
             @livewireScripts
         @stack('scripts')
         @yield('scripts')
-        <script>
-            feather.replace()
-          </script>
+
     </body>
 </html>

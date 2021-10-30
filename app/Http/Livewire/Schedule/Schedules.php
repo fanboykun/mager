@@ -60,6 +60,7 @@ class Schedules extends Component
         // dd($this->range);
         $this->process = true;
         $schedule = new Schedule();
+        $schedule->user_id = @auth()->id();
         $schedule->title = $this->title;
         $schedule->description = 'asdasfadhfajdnkfnjd';
         $schedule->start_at = Carbon::parse($this->start)->addSecond()->toDateTime();

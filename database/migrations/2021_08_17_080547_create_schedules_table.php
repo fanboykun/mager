@@ -15,6 +15,7 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullOnDelete();
             $table->string('title');
             $table->string('description')->nullable();
             $table->timestamp('start_at')->nullable();

@@ -13,17 +13,17 @@
                 <div class="font-medium text-center lg:text-left lg:mt-3">Details</div>
                 <div class="flex flex-col justify-center items-center lg:items-start mt-4">
                     <div class="truncate sm:whitespace-normal flex items-center">
-                        <i class="w-4 h-4 mr-2" data-feather="user"></i> Manager : {{ $division->manager->name }}
+                        <span wire:ignore><i class="w-4 h-4 mr-2" data-feather="user"></i> Manager : {{ $division->manager->name }}</span>
                     </div>
                     <div class="truncate sm:whitespace-normal flex items-center mt-3">
-                        <i class="w-4 h-4 mr-2" data-feather="users"></i>Count Users : {{ $division->users_count }}
+                        <span wire:ignore><i class="w-4 h-4 mr-2" data-feather="users"></i>Count Users : {{ $division->users_count }}</span>
                     </div>
                     <div class="truncate sm:whitespace-normal flex items-center mt-3">
-                        <i class="w-4 h-4 mr-2" data-feather="activity"></i>Last Activity At : {{ $division->updated_at->diffForHumans() }}
+                        <span wire:ignore><i class="w-4 h-4 mr-2" data-feather="activity"></i>Last Activity At : {{ $division->updated_at->diffForHumans() }} </span>
                     </div>
                 </div>
             </div>
-            <div class="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-5 border-t lg:border-0 border-gray-200 dark:border-dark-5 pt-5 lg:pt-0">
+            <div wire:ignore class="mt-6 lg:mt-0 flex-1 flex items-center justify-center px-5 border-t lg:border-0 border-gray-200 dark:border-dark-5 pt-5 lg:pt-0">
                 <div class="text-center rounded-md w-20 py-3">
                     <div class="font-medium text-theme-1 dark:text-theme-10 text-xl">{{ $division->projects_count }}</div>
                     <div class="text-gray-600">Projects</div>
@@ -39,26 +39,32 @@
             </div>
         </div>
         <div class="nav nav-tabs flex-col sm:flex-row justify-center lg:justify-start" role="tablist">
-            <a wire:click="openTab('users-list')" id="profile-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center {{ $div_tab === 'users-list' ? 'active' : '' }}" role="tab" aria-controls="profile" aria-selected="true">
-                <i class="w-4 h-4 mr-2" data-feather="users"></i> Users List
+            <button type="button" wire:click="$emit('openTab', 'users-list')" id="profile-tab" data-toggle="tab" class="py-4 sm:mr-8 flex items-center {{ $tab === 'users-list' ? 'active' : '' }}" role="tab" aria-controls="profile" aria-selected="true">
+                <span wire:ignore><i class="w-4 h-4 mr-2" data-feather="users"></i> Users List </span>
+            </button>
+            <a role="button" type="button" wire:click="$emit('openTab', 'lastest-work')" id="profile-tab" data-toggle="tab" class="py-4 sm:mr-8 flex items-center {{ $tab === 'lastest-work' ? 'active' : '' }}" role="tab" aria-controls="profile" aria-selected="true">
+                <span wire:ignore><i data-feather="briefcase" class="w-4 h-4 mr-2"></i> Lastest Work </span>
             </a>
-            <a wire:click="openTab('lastest-work')" id="profile-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center {{ $div_tab === 'lastest-work' ? 'active' : '' }}" role="tab" aria-controls="profile" aria-selected="true">
-                <i data-feather="briefcase" class="w-4 h-4 mr-2"></i> Lastest Work
+            <a wire:click="$emit('openTab', 'closest-schedule')" id="account-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center {{ $tab === 'closest-schedule' ? 'active' : '' }}" role="tab" aria-selected="false">
+                <span wire:ignore><i data-feather="calendar" class="w-4 h-4 mr-2"></i> Closest Schedule</span>
             </a>
-            <a wire:click="openTab('closest-schedule')" id="account-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center" role="tab" aria-selected="false">
-                <i data-feather="calendar" class="w-4 h-4 mr-2"></i> Closest Schedule
+            <a wire:click="$emit('openTab', 'lastest-content')" id="change-password-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center {{ $tab === 'lastest-content' ? 'active' : '' }}" role="tab" aria-selected="false">
+                <span wire:ignore><i data-feather="file" class="w-4 h-4 mr-2"></i>Lastest Content</span>
             </a>
-            <a wire:click="openTab('lastest-schedule')" id="change-password-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center" role="tab" aria-selected="false">
-                <i data-feather="file" class="w-4 h-4 mr-2"></i>Lastest Content
-            </a>
-            <a wire:click="openTab('edit')" id="settings-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center" role="tab" aria-selected="false">
-                <i data-feather="edit" class="w-4 h-4 mr-2"></i>Edit
+            <a wire:click="$emit('openTab', 'edit')" id="settings-tab" data-toggle="tab" href="javascript:;" class="py-4 sm:mr-8 flex items-center {{ $tab === 'edit' ? 'active' : '' }}" role="tab" aria-selected="false">
+                <span wire:ignore><i data-feather="edit" class="w-4 h-4 mr-2"></i>Edit</span>
             </a>
         </div>
     </div>
-@if ($div_tab === 'users-list')
+@if ($tab === 'users-list')
     @livewire('division.division-users-list', ['users' => $division->users])
-@elseif($div_tab === 'lastest-work')
-    @livewire('division.division-lastest-work')
+@elseif($tab === 'lastest-work')
+    @livewire('division.division-lastest-work', ['division' => $division])
+@elseif ($tab === 'closest-schedule')
+    @livewire('division.division-closest-schedule', ['division' => $division])
+@elseif ($tab === 'lastest-content')
+    @livewire('division.division-lastest-content', ['division' => $division])
+@elseif ($tab === 'edit')
+    @livewire('division.division-edit', ['division' => $division])
 @endif
 </div>

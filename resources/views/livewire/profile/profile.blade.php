@@ -16,18 +16,20 @@
               </div>
               <div class="ml-4 mr-auto">
                 <div class="font-medium text-base">{{ auth()->user()->name }}</div>
-                <div class="text-gray-600">Frontend Engineer</div>
+                <div class="text-gray-600">Role</div>
               </div>
-              <div class="dropdown">
+              {{-- <div class="dropdown">
                 <a
                   class="dropdown-toggle w-5 h-5 block"
                   href="javascript:;"
                   aria-expanded="false"
                 >
+                <span wire:ignore>
                   <i
                     data-feather="more-horizontal"
                     class="w-5 h-5 text-gray-600 dark:text-gray-300"
                   ></i>
+                </span>
                 </a>
                 <div class="dropdown-menu w-56">
                   <div class="dropdown-menu__content box dark:bg-dark-1">
@@ -59,6 +61,7 @@
                           rounded-md
                         "
                       >
+                      <span wire:ignore>
                         <i
                           data-feather="activity"
                           class="
@@ -69,6 +72,7 @@
                             mr-2
                           "
                         ></i>
+                      </span>
                         English
                       </a>
                       <a
@@ -88,6 +92,7 @@
                           rounded-md
                         "
                       >
+                      <span wire:ignore>
                         <i
                           data-feather="box"
                           class="
@@ -98,6 +103,7 @@
                             mr-2
                           "
                         ></i>
+                      </span>
                         Indonesia
                         <div
                           class="
@@ -128,6 +134,7 @@
                           rounded-md
                         "
                       >
+                      <span wire:ignore>
                         <i
                           data-feather="layout"
                           class="
@@ -138,6 +145,7 @@
                             mr-2
                           "
                         ></i>
+                      </span>
                         English
                       </a>
                       <a
@@ -157,6 +165,7 @@
                           rounded-md
                         "
                       >
+                      <span wire:ignore>
                         <i
                           data-feather="sidebar"
                           class="
@@ -167,6 +176,7 @@
                             mr-2
                           "
                         ></i>
+                      </span>
                         Indonesia
                       </a>
                     </div>
@@ -192,7 +202,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
             <div class="p-5 border-t border-gray-200 dark:border-dark-5">
               {{-- <a
@@ -207,36 +217,45 @@
               >
                 <i data-feather="activity" class="w-4 h-4 mr-2"></i> Costumize Your Profile
               </a> --}}
-                <a wire:click="changeTab(1)" class="flex items-center mt-5 {{ $tab == 1 ? 'text-theme-1 dark:text-theme-10 font-medium' : ''}}" href="javascript:;">
-                    <i data-feather="settings" class="w-4 h-4 mr-2"></i> Personal information
-              </a>
-              <a wire:click="changeTab(2)" class="flex items-center mt-5 {{ $tab == 2 ? 'text-theme-1 dark:text-theme-10 font-medium' : '' }}" href="javascript:;">
-                <i data-feather="lock" class="w-4 h-4 mr-2"></i> Change Password
-              </a>
-              <a wire:click="changeTab(3)" class="flex items-center mt-5 {{ $tab == 3 ? 'text-theme-1 dark:text-theme-10 font-medium' : '' }}" href="javascript:;">
-                <i data-feather="box" class="w-4 h-4 mr-2"></i> Display Information
-              </a>
+                <button wire:click="$emit('changeTab', 'personal-information')" class="flex items-center mt-5 {{ $tab === 'personal-information' ? 'text-theme-1 dark:text-theme-10 font-medium' : ''}}">
+                    <span wire:ignore>
+                        <i data-feather="settings" class="w-4 h-4 mr-2"></i>
+                    </span>
+                    Personal information
+              </button>
+              <button wire:click="$emit('changeTab', 'change-password')" class="flex items-center mt-5 {{ $tab === 'change-password' ? 'text-theme-1 dark:text-theme-10 font-medium' : '' }}">
+                <span wire:ignore>
+                    <i data-feather="lock" class="w-4 h-4 mr-2"></i>
+                    Change Password
+                </span>
+              </button>
+              <button wire:click="$emit('changeTab', 'display-information')" class="flex items-center mt-5 {{ $tab === 'display-information' ? 'text-theme-1 dark:text-theme-10 font-medium' : '' }}">
+                <span wire:ignore>
+                    <i data-feather="box" class="w-4 h-4 mr-2"></i>
+                    Display Information
+                </span>
+              </button>
             </div>
             <div class="p-5 border-t border-gray-200 dark:border-dark-5 flex">
-              <button type="button" wire:click="see()"class="btn btn-primary py-1 px-2">
+              <button type="button" class="btn btn-primary py-1 px-2">
                 New Group
               </button>
-              <button
+              {{-- <button
                 type="button"
                 class="btn btn-outline-secondary py-1 px-2 ml-auto"
               >
                 New Quick Link
-              </button>
+              </button> --}}
             </div>
           </div>
         </div>
         <!-- END: Profile Menu -->
         <div class="col-span-12 lg:col-span-8 xxl:col-span-9">
-            @if ($tab == 1)
+            @if ($tab === 'personal-information')
             @livewire('profile.personal-information')
-            @elseif ($tab == 2)
+            @elseif ($tab === 'change-password')
             @livewire('profile.change-password')
-            @else
+            @elseif($tab === 'display-information')
             @livewire('profile.display-information')
             @endif
         </div>

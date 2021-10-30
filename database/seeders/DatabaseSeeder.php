@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\Division::factory(5)->has(
-            \App\Models\User::factory()->count(3)
+            \App\Models\User::factory()->count(3)->has(\App\Models\Schedule::factory()->count(3))
             )
             ->create();
 
@@ -45,6 +45,6 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Event::factory(1)->create();
         \App\Models\Setting::factory(1)->create();
-        \App\Models\Schedule::factory(10)->create();
+        // \App\Models\Schedule::factory(10)->create();
     }
 }

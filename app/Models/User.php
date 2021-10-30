@@ -73,9 +73,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Division::class);
     }
+
     public function manager()
     {
         return $this->hasOne(Division::class, 'manager_id');
+    }
+    
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
     }
 
     // public function hasRead(Conversation $conversation)

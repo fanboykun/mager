@@ -7,8 +7,11 @@ use Livewire\Component;
 
 class Profile extends Component
 {
-    public $tab = 1;
+    public $tab = null ?? 'personal-information';
     public $user;
+    public $queryString = ['tab'];
+
+    public $listeners = ['changeTab' => 'moveTab'];
 
     public function render()
     {
@@ -16,13 +19,8 @@ class Profile extends Component
         return view('livewire.profile.profile');
     }
 
-    public function changeTab($tab)
+    public function moveTab($tab)
     {
-        $this->tab = $tab;
-    }
-
-    public function see()
-    {
-        dd($this->user);
+        return $this->tab = $tab;
     }
 }
